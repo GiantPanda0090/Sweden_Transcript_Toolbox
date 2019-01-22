@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transcript Uploader</title>
+</head>
+<body>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    html, body, h1, h2, h3, h4, h5, h6 {
+        font-family: "Roboto", sans-serif;
+    }
+
+    .course_table {
+        text-align: center;
+    }
+    .submit_button{
+        text-align: left;
+        align-content: left;
+        align-self: left;
+    }
+
+</style>
+
+<h1 class="w3-text-teal">GPA Calculator</h1>
+<p>Upload your swedish transcript to get anaylized</p>
+{% load static %}
+
+{% block content %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="myfile">
+        <button type="submit">Upload</button>
+    </form>
+
+    {% if uploaded_file_url %}
+        <br \>
+        <h3> Select Course That Invovled in The Program:</h3>
+
+        <form method="post" action="/processor/">
+                {% csrf_token %}
+
+
+            {% for key,content in dict.items %}
+                <h4>{{ key }}:</h4>
+                <table class="course_table">
+                    <tr>
+                        {% for title in titles %}
+                            <th>{{ title }}</th>
+                        {% endfor %}
+                    </tr>
+
+                    {% for course_code,detail in content.Course.items %}
+
+
+                        <tr>
+                            <th><input type="checkbox" name="{{ key }}_{{ course_code }}" value="{{ detail }}"></th>
+
+                            <th>{{ course_code }}</th>
+                            {% for content_key,values in detail.items %}
+                                {% if content_key == 'Course Content' %}
+                                    <td>
+                                        {% for subcourse in values %}
+                                            {% for subcourse_title,content in subcourse.items %}
+                                                {{ subcourse_title }}:{{ content }};
+                                            {% endfor %}
+                                            <br \>
+                                        {% endfor %}
+
+                                    </td>
+                                {% else %}
+                                    <td>{{ values }}</td>
+                                {% endif %}
+                            {% endfor %}
+
+                        </tr>
+
+                    {% endfor %}
+
+                </table>
+            {% endfor %}
+        <input type="submit" name="select_course" value="Submit for Analyze"><br>
+        </form>
+    {% endif %}
+
+{% endblock %}
+
+</body>
+</html>
