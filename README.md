@@ -1,9 +1,9 @@
 # Sweden_Transcript_Toolbox
-This is a toolbox that used to extract and analyse the data from swedish transript paper. (t.ex Calculate GPA)<br \>
+This is a toolbox that used to extract and analyse the data from swedish transript paper. (t.ex Calculate GPA)
 
-Demo on website: https://gpatoolbox.herokuapp.com/<br \>
+Demo on website: https://gpatoolbox.herokuapp.com/
 
-## Build:<br \>
+## Build:
 Clone the project under specific location<br \>
 Run command: pip3 install -r requirments.txt<br \>
 Run dev server: python manage.py runserver<br \>
