@@ -19,10 +19,15 @@ Please issue an issue request and we can try to fix it together<br />
 State a pull request base on an existance issue in an seperate branch<br />
 Please do not state a pull request with out stating an issue<br />
 
+## Test Case:
+The project is lack of test cases. If you are interested to create one, please push the test code under 'test' branch<br />
+I will integrated with Travis CI if the test cases is good to use <br />
+
 
 ## In the end:
 Any pull request to the deployment branch is not allowed and will not be merged<br />
 Any pull request direct to the master branch is not allowed and will not be merged<br />
+
 
 
 
