@@ -1,5 +1,5 @@
 # Sweden_Transcript_Toolbox
-This is a toolbox that used to extract and analyse the data from swedish transript paper. (t.ex Calculate GPA)
+This is a data mining toolbox that used to extract and analyse the data from swedish transript paper. (t.ex Calculate GPA)
 
 Demo on website: https://gpatoolbox.herokuapp.com/
 
@@ -11,6 +11,9 @@ If multiple pythone installed:<br />
 Run: python3 manage.py runserver<br />
 Enter link: localhost:8000 on browser<br />
 Suggested browser: Google Chrome<br />
+
+## Usage:
+The National Transcript that submit into GPA Toolbox has to be PDF format and issued from Sweden<br />
 
 ## If issue detected:
 Please issue an issue request and we can try to fix it together<br />
